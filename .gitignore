@@ -1,0 +1,47 @@
+# .gitignore
+
+# Environment files – NEVER commit real credentials
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Django
+staticfiles/
+media/
+*.sqlite3
+local_settings.py
+
+# Node / Frontend
+node_modules/
+dist/
+frontend/dist/
+*.tsbuildinfo
+
+# Docker
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

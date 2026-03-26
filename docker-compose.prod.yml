@@ -1,0 +1,30 @@
+# Production overrides – extend docker-compose.yml
+# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+services:
+  backend:
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.prod
+    restart: always
+
+  frontend:
+    restart: always
+    build:
+      args:
+        VITE_API_BASE_URL: /api
+
+  db:
+    restart: always
+
+  nginx:
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/nginx-ssl.conf:/etc/nginx/conf.d/ssl.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro      # Let's Encrypt certs
+      - /var/www/certbot:/var/www/certbot:ro       # ACME challenge
+      - media_data:/app/media:ro
+      - static_data:/app/staticfiles:ro
