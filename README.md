@@ -197,7 +197,6 @@ IAM → Roles → Create Role
 | S3 GET requests | 20,000/month | File views ✅ |
 | Data Transfer Out | 1 GB/month | API + static files ✅ |
 
-> **Note**: Free Tier lasts 12 months from account creation. Set a **billing alarm** at $1 to get notified of any charges.
 
 ---
 
